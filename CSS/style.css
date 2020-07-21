@@ -19,18 +19,21 @@ body .back-decor {
 
 @media (min-width: 800px) {
   body .back-decor {
-    -webkit-clip-path: polygon(68% 0, 100% 0%, 100% 100%, 44% 100%);
-            clip-path: polygon(68% 0, 100% 0%, 100% 100%, 44% 100%);
+    -webkit-clip-path: polygon(64% 0, 100% 0%, 100% 100%, 44% 100%);
+            clip-path: polygon(64% 0, 100% 0%, 100% 100%, 44% 100%);
   }
 }
 
 @media (min-width: 800px) {
-  .container {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 50% auto;
-        grid-template-columns: 50% auto;
-        grid-template-areas: "options" "info";
+  body .grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0 220px;
+    margin-top: 150px;
   }
 }
 
@@ -59,10 +62,8 @@ section.options .option-box {
 
 @media (min-width: 800px) {
   section.options .option-box {
-    grid-area: options;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    width: 555px;
+    height: 361px;
   }
 }
 
@@ -75,12 +76,26 @@ section.info-text h1 {
   line-height: 53px;
 }
 
+@media (min-width: 800px) {
+  section.info-text h1 {
+    font-size: 5rem;
+    line-height: 111px;
+  }
+}
+
 section.info-text h2 {
   font-size: 1rem;
   color: #fff;
   text-align: center;
   margin-top: 9px;
   line-height: 24px;
+}
+
+@media (min-width: 800px) {
+  section.info-text h2 {
+    font-size: 2rem;
+    line-height: 44px;
+  }
 }
 
 section.info-text a {
@@ -98,14 +113,14 @@ section.info-text a {
 }
 
 @media (min-width: 800px) {
+  section.info-text a {
+    top: 87%;
+  }
+}
+
+@media (min-width: 800px) {
   section.info-text {
-    grid-area: info;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
+    margin-top: 15px;
   }
 }
 /*# sourceMappingURL=style.css.map */
