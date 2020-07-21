@@ -2,7 +2,8 @@ $colors: (
     decor-color: #3498DB,
     bg-color: #ECF0F1,
     text-color: #fff,
-    alt-text: #000
+    alt-text: #000,
+    alt-decor:
 );
 
 $fontSize: (
@@ -121,6 +122,10 @@ section.info-text{
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
+
+        @include desktop{
+            background-color: ;
+        }
     }
 
     @include desktop{
