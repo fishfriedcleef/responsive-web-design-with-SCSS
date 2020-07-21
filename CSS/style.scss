@@ -7,19 +7,27 @@ $colors: (
 
 $fontSize: (
     bigHeader: 2.5rem,
+    medHeader: 2rem,
     regHeader: 1.25rem,
     body: 1rem,
     small: 0.8rem
 );
 
 $border: 15px;
+$desktop: 800px;
 
 @function color($color-selection){
     @return map-get($colors, $color-selection );
 }
 
 @function text($text-size){
-    @return map-get($fontSize, $text-size)
+    @return map-get($fontSize, $text-size);
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
 }
 
 body, html {
@@ -28,6 +36,7 @@ body, html {
 
 body{
     font-family: 'Montserrat', sans-serif;
+    background-color: color(bg-color);
     .back-decor{
         clip-path: polygon(0 0, 56% 0, 100% 51%, 100% 100%, 0 100%);
         width: 100%;
@@ -35,7 +44,20 @@ body{
         background-color: color(decor-color);
         position: absolute;
         z-index: -1;
-        top: 0;
+
+        @include desktop{
+            clip-path: polygon(68% 0, 100% 0%, 100% 100%, 44% 100%);
+        }
+    }
+}
+
+.container{
+    @include desktop{
+        display: grid;
+        grid-template-columns: 50% auto;
+        grid-template-areas: 
+            "options"
+            "info";
     }
 }
 
@@ -44,19 +66,28 @@ nav{
         font-size: text(redHeader);
         color: color(text-color);
         text-transform: uppercase;
-        margin-top: 23px;
-        margin-left: 36px;
+        padding: 23px 0 0 36px;
+
+        @include desktop{
+            font-size: text(medHeader);
+            color: color(alt-text)
+        }
     }
 }
 
 section.options{
     .option-box{
-        width: 82%;
+        width: 303px;
         height: 197px;
         background-color: color(text-color);
-        margin: 22px 0 0 36px;
+        margin: 22px auto 0 auto;
         border-radius: $border;
         box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.349);
+
+        @include desktop{
+            grid-area: options;
+            align-self: center;
+        }
     }
 }
 
@@ -90,5 +121,11 @@ section.info-text{
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
+    }
+
+    @include desktop{
+        grid-area: info;
+        align-self: center;
+        height: fit-content;
     }
 }

@@ -4,6 +4,7 @@ body, html {
 
 body {
   font-family: 'Montserrat', sans-serif;
+  background-color: #ECF0F1;
 }
 
 body .back-decor {
@@ -14,24 +15,55 @@ body .back-decor {
   background-color: #3498DB;
   position: absolute;
   z-index: -1;
-  top: 0;
+}
+
+@media (min-width: 800px) {
+  body .back-decor {
+    -webkit-clip-path: polygon(68% 0, 100% 0%, 100% 100%, 44% 100%);
+            clip-path: polygon(68% 0, 100% 0%, 100% 100%, 44% 100%);
+  }
+}
+
+@media (min-width: 800px) {
+  .container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% auto;
+        grid-template-columns: 50% auto;
+        grid-template-areas: "options" "info";
+  }
 }
 
 nav h1 {
   color: #fff;
   text-transform: uppercase;
-  margin-top: 23px;
-  margin-left: 36px;
+  padding: 23px 0 0 36px;
+}
+
+@media (min-width: 800px) {
+  nav h1 {
+    font-size: 2rem;
+    color: #000;
+  }
 }
 
 section.options .option-box {
-  width: 82%;
+  width: 303px;
   height: 197px;
   background-color: #fff;
-  margin: 22px 0 0 36px;
+  margin: 22px auto 0 auto;
   border-radius: 15px;
   -webkit-box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.349);
           box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.349);
+}
+
+@media (min-width: 800px) {
+  section.options .option-box {
+    grid-area: options;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
 }
 
 section.info-text h1 {
@@ -63,5 +95,17 @@ section.info-text a {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+@media (min-width: 800px) {
+  section.info-text {
+    grid-area: info;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
 }
 /*# sourceMappingURL=style.css.map */
